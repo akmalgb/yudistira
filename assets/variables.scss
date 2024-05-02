@@ -1,0 +1,17 @@
+// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+//
+// The variables you want to modify
+// $font-size-root: 20px;
+$body-font-family: 'Open Sans', serif;
+$font-weights: map-deep-merge(
+  (
+    'thin': 100,
+    'light': 300,
+    'regular': 400,
+    'medium': 500,
+    'semibold': 600,
+    'bold': 700,
+    'black': 900
+  ),
+  $font-weights
+);

@@ -1,0 +1,21 @@
+name: SIDIGS WEB WALIMURID - Release To Production / PROD Environment
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: Deploy on Production
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy on Production Sidigs
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_PROD }}
+          username: ${{ secrets.USERNAME_PROD }}
+          key: ${{ secrets.SSHKEY_PROD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd /var/www/yudistira
+            git pull
+            npm run generate
